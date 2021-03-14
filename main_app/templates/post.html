@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %}{% block scripts%}{% endblock%}
 {% block content %}
 
 <link
@@ -76,8 +76,52 @@
 </div>
 {% comment %} end of modal body {% endcomment %}
 
+
+{% comment %} hero banner image for each post {% endcomment %}
+
+
+<div class="text-center">
+  <img src="{{post.city.flags}}" id="postImageView" class="rounded" alt="...">
+</div>
+<div class="containPostButtons"> 
+<div class="row buttonPostsPage">
+      {% comment %} <div class="modal-footer"> {% endcomment %}
+                <div class="col-4 postCol">
+                  <a
+                          href="{% url 'all_posts' %}"
+                          class="btn btn-primary"
+                          style="float: right"
+                  > <i class="fa fa-user-circle" aria-hidden="true"></i> All posts
+                  </a>
+                </div>
+                    <div class="col-4 postCol">
+                      <button
+                              type="button"
+                              class="btn btn-primary"
+                              id="add-btn"
+                              data-bs-toggle="modal"
+                              data-bs-target="#DeleteModal"
+                      >
+                        <i class="fas fa-trash-alt"></i> Delete</i>
+                      </button>
+                    </div>
+                        <div class="col-4 postCol">
+                                        <button
+                                                type="button"
+                                                class="btn btn-primary"
+                                                id="add-btn"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#postModal"
+                                        >
+                            <i class="fas fa-edit"></i> Edit Post</i>
+                          </button>
+                        </div>
+      </div>
+</div>
+
+
 <div class="postCard">
-  <div class="card" style="max-width: 840px; min-width: 840px;">
+  <div class="card postPageContent" style="max-width: 840px; min-width: 840px;">
     <div class="card-header">
       <h5 class="card-title postHeader">Title: {{ post.title }}</h5>
       <p class="text-muted postHeader">Posted on: {{ post.created_at }}</p>
@@ -86,39 +130,7 @@
       <p>Author: {{ post.user.username }}</p>
       <p class="card-text">{{ post.description }}</p>
 
-      <div class="row">
-      {% comment %} <div class="modal-footer"> {% endcomment %}
-        <div class="col-4 postCol">
-          <a
-                  href="{% url 'all_posts' %}"
-                  class="btn btn-primary"
-                  style="float: right"
-          > <i class="fa fa-user-circle" aria-hidden="true"></i> Go To All Post
-          </a>
-        </div>
-        <div class="col-4 postCol">
-          <button
-                  type="button"
-                  class="btn btn-primary"
-                  id="add-btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#DeleteModal"
-          >
-            <i class="fas fa-trash-alt"></i> Delete</i>
-          </button>
-        </div>
-        <div class="col-4 postCol">
-          <button
-                  type="button"
-                  class="btn btn-primary"
-                  id="add-btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#postModal"
-          >
-            <i class="fas fa-edit"></i> Edit Post</i>
-          </button>
-        </div>
-      </div>
+      
     </div>
   </div>
 </div>

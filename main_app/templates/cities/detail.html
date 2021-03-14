@@ -113,7 +113,7 @@
 
 
  <h2 class="city_title_dark"style="    margin-bottom: 0px;
-    line-height: 1.75;">&nbsp;&nbsp; Your Cities
+    line-height: 1.75;">&nbsp;&nbsp; All Cities
                     <button
                       style="justify-content: end; float: right; margin: 3%"
                       type="button"
@@ -210,9 +210,9 @@
 </div>
 
 <div class="col-8">
-<div class="cityDetailContainer container">
-  <h1>{{city.name}}</h1>
-  <div class="card mb-3" id="cityDetailCard">
+<div class="cityDetailContainer container ">
+  {% comment %} <h1>{{city.name}}</h1> {% endcomment %}
+  <div class="card mb-3 cityShadowBox" id="cityDetailCard">
     <img src="{{city.flags}}" class="card-img-top cityFlagDetail" alt="..." />
     <div class="card-body">
       <h5 class="card-title">{{city.name}}</h5>
@@ -247,14 +247,14 @@
 
 {% comment %} {% for post in posts %}
 <p>Hello {{post.title}}</p> {% endcomment %}
-<h1 style="text-align: center;">All Posts</h1>
+<h1 class="allPostsTitle whiteTitle" style="text-align: center;">All Posts</h1>
 
-<section class="containerDetail container-fluid">
+<section class="containerDetail container-fluid containerDetailCity">
 <div class="posts overflow-auto" id="posts">
           {% for post in posts %}
           <a class="cardATag" href="{% url 'posts_detail' post.id %}">
             {% if forloop.counter|divisibleby:2 %}
-            <div class="card mb-3 postsContainer cityDetailPost" style="max-width: 840px">
+            <div class="card mb-3 postsContainer cityDetailPost" style="width: 100%;">
               <div class="row g-0">
                 <div class="col-md-4">
                   <img
@@ -280,7 +280,7 @@
               </div>
             </div>
             {% else %}
-            <div class="card mb-3 postsContainer cityDetailPost" style="max-width: 840px">
+            <div class="card mb-3 postsContainer cityDetailPost" style="width: 100%;">
               <div class="row g-0">
                 <div class="col-md-8">
                   <div class="card-body">

@@ -1,10 +1,5 @@
 {% extends 'base.html' %} {% block scripts %}
-<link
-        rel="stylesheet"
-        href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-        crossorigin="anonymous"
-/>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 {% comment %} Edit Profile {% endcomment %}
 <div
         class="modal fade"
@@ -231,8 +226,8 @@
           </a>
         </div> {% endcomment %}
         {% comment %} {% else %} {% endcomment %}
-        <div class="card mb-3 profile-city-list" style="max-width: 540px">
-          <a class="list-group-item list-group-item-action" href="{% url 'profile_show' profile.id city.id  %}">
+        <div class="card mb-3 profile-city-list leftSideHover" >
+          <a class="list-group-item list-group-item-action leftSideHover2" href="{% url 'profile_show' profile.id city.id  %}">
             <div class="row g-0">
               <div class="col-md-8">
                 <div class="card-body">
@@ -260,7 +255,7 @@
             tabindex="0"
     >
       <div class="selected_city">
-        <div class="row">
+        <div class="row profileBox">
           {% comment %} added id = listitem eventuallythat will allow to open
           seperate city {% endcomment %}
           <div class="col-6" id="list-item-1">
@@ -268,8 +263,10 @@
             {% if city.name|length <= 0 %}
                <h1> Tell Us Your Favorite City! </h1>
             {% else %}
+            <a  class="mainPageATag" href="{% url 'city_detail' city%}">
              <h1> {{city.name}}</h1>
              <h3>{{city.description}}</h3>
+             </a>
             {% endif %}
             </div>
           </div>
@@ -309,18 +306,18 @@
           </div>
         </div>
           <div class="row profilePost">
-            <div class="col-6">
-              <h1>Your Posts</h1>
+            <div class="col-6 yourPostTitle">
+              <h1 class="whiteTitle">Your Posts</h1>
             </div>
             <div class="col-6">
               {% comment %} button {% endcomment %}
-              <button type="button" class="btn btn-primary" id="add-btn" data-bs-toggle="modal" data-bs-target="#postModal">
+              <button type="button" class="btn btn-primary addPostButton" id="add-btn" data-bs-toggle="modal" data-bs-target="#postModal">
                 <i class="fas fa-plus"></i>
                 Add A Post
               </button>
             </div>
           </div>
-        <div class="posts overflow-auto" id="posts">
+        <div class="posts overflow-auto postBox" id="posts">
           <div></div>
           {% comment %} {% if profile.post.city.id==city.id %} {% endcomment %}
           {% for post in posts %}

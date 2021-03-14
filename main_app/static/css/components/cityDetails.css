@@ -19,10 +19,6 @@
   width: 80%;
 }
 
-#cityDetailCard:hover {
-  box-shadow: 0.5px 0.5px;
-}
-
 .cityBtn:hover {
   animation-name: pulse;
   animation-duration: 3s;
@@ -32,7 +28,7 @@
 .cityDetailPost {
   display: flex;
   margin: 0 auto;
-  align-items: center;
+  /* align-items: center; */
   width: 80%;
   min-width: 80%;
 }
@@ -40,6 +36,10 @@
 .containerDetail {
   width: 100vw;
   text-align: center;
+}
+
+.containerDetailCity {
+  padding: 0 !important;
 }
 
 @keyframes pulse {
@@ -52,4 +52,23 @@
   to {
     transform: scale(1);
   }
+}
+
+.cityShadowBox {
+  margin: 0px auto 5px;
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.allPostsTitle {
+  background: var(--fourth-color);
+  margin: 1px;
+  border-radius: 7px 7px 0px 0px;
+  padding-top: 4px;
+}
+
+h1 .allPostsTitle {
+  color: var(--main-color) !important;
 }

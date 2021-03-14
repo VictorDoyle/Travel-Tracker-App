@@ -24,7 +24,7 @@ from django.urls import reverse
 class City(models.Model):
     name = models.CharField(max_length=20, unique=True)
     description = models.CharField(max_length=100)
-    flags = models.CharField(max_length=200)
+    flags = models.CharField(verbose_name='Image(Url):', max_length=200)
     user = models.ForeignKey(Account, on_delete=models.CASCADE)
     """ posts = models.ManyToManyField(Post, blank=True)  """
     slug = models.SlugField(default='', editable=False,
@@ -76,7 +76,7 @@ class Profile(models.Model):
 @receiver(post_save, sender=Account)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
-        Profile.objects.create(user=instance)
+        Profile.objects.create(user=instance, username=instance.username)
 
 
 @receiver(post_save, sender=Account)
